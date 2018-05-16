@@ -27,7 +27,7 @@
 		    }
 		]
 	    },
-	    "content_security_policy": "default-src 'self'; connect-src https://api.github.com https://github.com https://*; object-src 'none'; img-src 'self' data:",
+	    "content_security_policy": "default-src 'self'; connect-src https://api.stakoveflow.com https://stakoveflow.com https://*; object-src 'none'; img-src 'self' data:",
 	    "default_locale": "en",
 	    "description": "__MSG_description__",
 	    "name": "__MSG_name__",
@@ -36,7 +36,7 @@
 		"notifications",
 		"alarms",
 		"storage",
-		"https://github.com/login/oauth/access_token"
+		"https://stakoveflow.com/login/oauth/access_token"
 	    ],
 	    "optional_permissions": [
 		"https://*/*"
