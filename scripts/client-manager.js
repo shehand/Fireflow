@@ -7,66 +7,43 @@
 //TODO some way to handle accounts that have failing logins instead of just removing them.
 
 class ClientManager extends window.StorageManager {
-    static get GITHUB() {
-        return "github";
+
+    static get STACKOVERFLOW() {
+        return "stackoverflow";
     }
 
-    static get ENTERPRISE() {
-        return "enterprise";
+    static get STACKOVERFLOW_LIGHT() {
+        return "stackoverflow-light";
     }
 
-    static get GITHUB_LIGHT() {
-        return "github-light";
+    static get STACKOVERFLOW_USER_TOKEN() {
+        return "stackoverflow-user";
     }
 
-    static get GITHUB_USER_TOKEN() {
-        return "github-user";
-    }
-
-    static get ENTERPRISE_PAT() {
-        return "enterprise-pat";
-    }
 
     static getTypeForClient(client) {
-        if(client instanceof window.GitHubEnterpriseUserToken) {
-            return ClientManager.ENTERPRISE_PAT;
+        
+        if(client instanceof window.StackoverflowLight) {
+            return ClientManager.Stackoverflow_LIGHT;
         }
-        if(client instanceof window.GitHubEnterprise) {
-            return ClientManager.ENTERPRISE;
+        else if(client instanceof window.StackoverflowUserToken) {
+            return ClientManager.StACKOVERFLOW_USER_TOKEN;
         }
-        else if(client instanceof window.GitHubLight) {
-            return ClientManager.GITHUB_LIGHT;
-        }
-        else if(client instanceof window.GitHubUserToken) {
-            return ClientManager.GITHUB_USER_TOKEN;
-        }
-        return ClientManager.GITHUB;
+        return ClientManager.STACKOVERFLOW;
     }
 
     static async createClient(type, id, details) {
         let ClientFactory;
-        if(type === ClientManager.GITHUB) {
-            ClientFactory = window.GitHub;
+        if(type === ClientManager.STACKOVERFLOW) {
+            ClientFactory = window.Stackoverflow;
         }
-        else if(type === ClientManager.GITHUB_LIGHT) {
-            ClientFactory = window.GitHubLight;
+        else if(type === ClientManager.STACKOVERFLOW_LIGHT) {
+            ClientFactory = window.StackoverflowLight;
         }
-        else if(type === ClientManager.ENTERPRISE) {
-            ClientFactory = window.GitHubEnterprise;
-            if(!details) {
-                throw new Error("Details required to create enterprise client");
-            }
-        }
-        else if(type === ClientManager.GITHUB_USER_TOKEN) {
-            ClientFactory = window.GitHubUserToken;
+        else if(type === ClientManager.STACKOVERFLOW_USER_TOKEN) {
+            ClientFactory = window.StackoverflowToken;
             if(!details) {
                 throw new Error("Details required to create PAT client");
-            }
-        }
-        else if(type === ClientManager.ENTERPRISE_PAT) {
-            ClientFactory = window.GitHubEnterpriseUserToken;
-            if(!details) {
-                throw new Error("Details required to create enterprise PAT client");
             }
         }
         const factoryArgs = ClientFactory.buildArgs(clientId, clientSecret, details);

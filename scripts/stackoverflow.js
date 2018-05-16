@@ -30,13 +30,13 @@ const parseLinks = (links) => {
     return linkObj;
 };
 
-class GitHub {
+class Stackoverflow {
     static get BASE_URI() {
-        return 'https://api.github.com/';
+        return 'https://api.stackoverflow.com/';
     }
 
     static get SITE_URI() {
-        return 'https://github.com/';
+        return 'https://stackoverflow.com/';
     }
 
     static get REDIRECT_URI() {
@@ -49,11 +49,11 @@ class GitHub {
 
     static get FOOTER_URLS() {
         return {
-            "index": GitHub.SITE_URI,
-            "unread": `${GitHub.SITE_URI}notifications`,
-            "all": `${GitHub.SITE_URI}notifications?all=1`,
-            "participating": `${GitHub.SITE_URI}notifications/participating`,
-            "watched": `${GitHub.SITE_URI}watching`
+            "index": Stackoverflow.SITE_URI,
+            "unread": `${Stackoverflow.SITE_URI}notifications`,
+            "all": `${Stackoverflow.SITE_URI}notifications?all=1`,
+            "participating": `${Stackoverflow.SITE_URI}notifications/participating`,
+            "watched": `${Stackoverflow.SITE_URI}watching`
         };
     }
 
@@ -72,7 +72,7 @@ class GitHub {
         this.pollInterval = 60;
         this._username = "";
         this.headers = {
-            Accept: "application/vnd.github.v3+json"
+            Accept: "application/vnd.stackoverflow.v3+json"
         };
     }
 
@@ -85,7 +85,7 @@ class GitHub {
     }
 
     get scope() {
-        return GitHub.SCOPE;
+        return Stackoverflow.SCOPE;
     }
 
     get username() {
@@ -93,15 +93,15 @@ class GitHub {
     }
 
     buildAPIURL(endpoint = '') {
-        return GitHub.BASE_URI + endpoint;
+        return Stackoverflow.BASE_URI + endpoint;
     }
 
     buildSiteURL(endpoint = '') {
-        return GitHub.SITE_URI + endpoint;
+        return Stackoverflow.SITE_URI + endpoint;
     }
 
     authURL(authState) {
-        return this.buildSiteURL(`login/oauth/authorize?client_id=${this.clientID}&scope=${this.scope}&state=${authState}&redirect_uri=${encodeURIComponent(GitHub.REDIRECT_URI.toString())}`);
+        return this.buildSiteURL(`login/oauth/authorize?client_id=${this.clientID}&scope=${this.scope}&state=${authState}&redirect_uri=${encodeURIComponent(Stackoverflow.REDIRECT_URI.toString())}`);
     }
 
     setToken(token) {
@@ -117,7 +117,7 @@ class GitHub {
         params.append("client_id", this.clientID);
         params.append("client_secret", this.clientSecret);
         params.append("code", code);
-        params.append("redirect_uri", GitHub.REDIRECT_URI.toString());
+        params.append("redirect_uri", Stackoverflow.REDIRECT_URI.toString());
         params.append("state", authState);
 
         const response = await fetch(this.buildSiteURL('login/oauth/access_token'), {
@@ -329,4 +329,4 @@ class GitHub {
     }
 }
 
-window.GitHub = GitHub;
+window.Stackoverflow = Stackoverflow;

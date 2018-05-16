@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="scripts/l10n.js"></script>
+        <script src="scripts/storage.js"></script>
+        <script src="scripts/storage-manager.js"></script>
+        <script src="scripts/popup.js"></script>
+        <link rel="stylesheet" href="styles/popup.css">
+    </head>
+    <body>
+        <menu type="context" id="maincontext">
+            <menuitem id="markAsRead" accesskey="M A R" data-l10n-id="markAsRead" data-l10n-attrs="accesskey">Mark as read</menuitem>
+            <menuitem id="unsubscribe" accesskey="U W" data-l10n-id="unwatch" data-l10n-attrs="accesskey">Unsubscribe</menuitem>
+            <menuitem id="ignore" accesskey="I G" data-l10n-id="ignore" data-l10n-attrs="accesskey">Ignore</menuitem>
+        </menu>
+        <main class="panel">
+            <select id="accounts" class="browser-style">
+                <option value="all" data-l10n-id="allAccounts" selected>All accounts</option>
+            </select>
+            <div class="panel-section panel-section-list">
+                <div id="empty">
+                    <div class="panel-list-item disabled">
+                        <div class="icon"></div>
+                        <span class="text" id="empty-text" data-l10n-id="noNotifications">No notifications</span>
+                    </div>
+                    <div class="panel-section-separator"></div>
+                </div>
+
+                <ul id="notifications" hidden contextmenu="maincontext"></ul>
+                <div class="panel-list-item disabled" id="mark-read">
+                    <div class="icon"></div>
+                    <span class="text" id="mark-read-text" data-l10n-id="markAllRead">Mark all as read</span>
+                </div>
+            </div>
+        </main>
+        <footer class="panel-section panel-section-footer">
+            <!-- The placeholder is so the popup correctly resizes when replacing the label -->
+            <button class="panel-section-footer-button" id="open">PLACEHOLDERPLACEHOLDERPLACEHOLDER</button>
+        </footer>
+    </body>
+</html>

@@ -22,7 +22,7 @@ class Account extends window.Storage {
     }
 
     get removeAction() {
-        if(this.type === 'enterprise-pat' || this.type === 'github-user') {
+        if(this.type === 'enterprise-pat' || this.type === 'stackoverflow-user') {
             return browser.i18n.getMessage('remove');
         }
         return browser.i18n.getMessage('logout');
@@ -105,7 +105,7 @@ class AccountManager extends window.StorageManager {
                         option.disabled = false;
                     }
                     // Default selection
-                    typeForm.value = "github";
+                    typeForm.value = "stackoverflow";
                     typeForm.dispatchEvent(new Event("change"));
                 }
             })

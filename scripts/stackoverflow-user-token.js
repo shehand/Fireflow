@@ -37,4 +37,4 @@ class StackoverflowUserToken extends window.Stackoverflow {
     }
 }
 
-window.StackoverflowUserToken = StackoverflowUserToken;
+window.StackoverflowToken = StackoverflowToken;

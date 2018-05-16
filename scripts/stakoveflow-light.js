@@ -4,14 +4,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-class GitHubLight extends window.GitHub {
+class StackoverflowLight extends window.Stackoverflow {
     static get SCOPE() {
         return "notifications";
     }
 
     get scope() {
-        return GitHubLight.SCOPE;
+        return StackoverflowLight.SCOPE;
     }
 }
 
-window.GitHubLight = GitHubLight;
+window.StackoverflowLight = StackoverflowLight;

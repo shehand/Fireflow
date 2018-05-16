@@ -212,8 +212,8 @@ class ClientHandler extends window.Storage {
         }
         else {
             if(remote) {
-                const githubID = this._getOriginalID(id);
-                await this.client.markNotificationRead(githubID);
+                const stackoverflowID = this._getOriginalID(id);
+                await this.client.markNotificationRead(stackoverflowID);
             }
             const notifications = await this._getNotifications();
             const notifs = notifications.filter((notification) => notification.id != id);
@@ -258,8 +258,8 @@ class ClientHandler extends window.Storage {
         return this.getValue(ClientHandler.NOTIFICATIONS, []);
     }
 
-    _getNotificationID(githubID) {
-        return this.NOTIFICATION_PREFIX + githubID;
+    _getNotificationID(stackoverflowID) {
+        return this.NOTIFICATION_PREFIX + stackoverflowID;
     }
 
     _getOriginalID(id) {
