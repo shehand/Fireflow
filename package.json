@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freaktechnik/advanced-github-notifier.git"
+    "url": "git+https://github.com/shehand/Fireflow.git"
   },
   "author": "Martin Giger",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/freaktechnik/advanced-github-notifier/issues"
+    "url": "https://github.com/shehand/advanced-github-notifier/issues"
   },
   "files": [
     "scripts/*",
@@ -29,11 +29,8 @@
     "manifest.json",
     "*.html"
   ],
-  "homepage": "https://github.com/freaktechnik/advanced-github-notifier#readme",
+  "homepage": "https://github.com/shehand/advanced-github-notifier#readme",
   "devDependencies": {
-    "@freaktechnik/eslint-config-base": "^6.3.1",
-    "@freaktechnik/eslint-config-extension": "^6.3.2",
-    "@freaktechnik/eslint-config-test": "^6.3.2",
     "ava": "^0.25.0",
     "codecov": "^3.0.0",
     "eslint": "^4.19.1",

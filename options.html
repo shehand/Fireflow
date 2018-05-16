@@ -15,48 +15,18 @@
             <form id="login">
                 <label for="account-type" data-l10n-id="account_type">Account type</label>
                 <select class="browser-style" id="account-type">
-                    <optgroup label="GitHub.com" data-l10n-id="group_github" data-l10n-nocontent="yes" data-l10n-attrs="label">
-                        <option value="github" data-l10n-id="account_github" disabled>GitHub</option>
-                        <option value="github-light" data-l10n-id="account_github-light" disabled>GitHub (no private repos)</option>
-                        <option value="github-user" data-l10n-id="account_github-user" selected>GitHub (Personal access token)</option><!-- default because OAuth flow is broken -->
-                    </optgroup>
-                    <optgroup label="GitHub Enterprise" data-l10n-id="group_enterprise" data-l10n-nocontent="yes" data-l10n-attrs="label">
-                        <option value="enterprise" data-l10n-id="account_enterprise">GitHub Enterprise (OAuth)</option>
-                        <option value="enterprise-pat" data-l10n-id="account_enterprise-pat">GitHub Enterprise (Personal access token)</option>
+                    <optgroup label="stackoverflow.com" data-l10n-id="group_stackoverflow" data-l10n-nocontent="yes" data-l10n-attrs="label">
+                        <option value="stackoverflow" data-l10n-id="account_stackoverflow" disabled>Stackoverflow</option>
+                        <option value="stackoverflow-light" data-l10n-id="account_stackoverflow-light" disabled>StackoverflowStackoverflow</option>
+                        <option value="stackoverflow-user" data-l10n-id="account_stackoverflow-user" selected>Stackoverflow</option><!-- default because OAuth flow is broken -->
                     </optgroup>
                 </select>
-                <fieldset name="enterprise" hidden>
+                <fieldset name="stackoverflow-user" hidden>
                     <p class="browser-style">
-                        <label for="enterprise-clientid" data-l10n-id="clientID">Client ID</label>
-                        <input type="text" id="enterprise-clientid" class="browser-style" name="clientId" disabled>
-                    </p>
-                    <p class="browser-style">
-                        <label for="enterprise-clientsecret" data-l10n-id="clientSecret">Client secret</label>
-                        <input type="password" id="enterprise-clientsecret" class="browser-style" name="clientSecret" disabled>
-                    </p>
-                    <p class="browser-style">
-                        <label for="enterprise-url" data-l10n-id="instanceURL">Instance URL</label>
-                        <input type="url" id="enterprise-url" class="browser-style" name="instanceURL" pattern="https://.+" placeholder="https://example.com" disabled>
-                    </p>
-                    <small data-l10n-id="enterprise_redirect">The redirect URL is "https://localhost/github-auth"</small>
-                </fieldset>
-                <fieldset name="github-user" hidden>
-                    <p class="browser-style">
-                        <label for="github-user-token" data-l10n-id="userToken">Personal access token</label>
-                        <input type="password" id="github-user-token" class="browser-style" name="token" disabled>
-                        <a href="https://github.com/settings/tokens/new" data-l10n-id="generate_token" rel="noopener" target="_blank">Create personal access token</a>
+                        <label for="stackoverflow-user-token" data-l10n-id="userToken">Personal access token</label>
+                        <input type="password" id="stackoverflow-user-token" class="browser-style" name="token" disabled>
+                        <a href="https://stackoverflow.com/settings/tokens/new" data-l10n-id="generate_token" rel="noopener" target="_blank">Create personal access token</a>
                         <small data-l10n-id="token_scopes">The token must at least have the "notifications" scope. For private repos it needs "repo" to function correctly.</small>
-                    </p>
-                </fieldset>
-                <fieldset name="enterprise-pat" hidden>
-                    <p class="browser-style">
-                        <label for="enterprise-user-token" data-l10n-id="userToken">Personal access token</label>
-                        <input type="password" id="enterprise-user-token" class="browser-style" name="token" disabled>
-                        <small data-l10n-id="token_scopes">The token must at least have the "notifications" scope. For private repos it needs "repo" to function correctly.</small>
-                    </p>
-                    <p class="browser-style">
-                        <label for="enterprise-pat-url" data-l10n-id="instanceURL">Instance URL</label>
-                        <input type="url" id="enterprise-pat-url" class="browser-style" name="instanceURL" pattern="https://.+" placeholder="https://example.com" disabled>
                     </p>
                 </fieldset>
                 <button class="browser-style" type="submit" data-l10n-id="addAccount">Add account</button>
@@ -75,12 +45,12 @@
         <section>
             <label for="footer" class="browser-style-label" data-l10n-id="footerLabel">Footer links to</label>
             <select id="footer" class="browser-style">
-                <optgroup label="GitHub" data-l10n-id="footerGithub" data-l10n-attrs="label" data-l10n-nocontent="yes">
+                <optgroup label="Stackoverflow" data-l10n-id="footerStackoverflow" data-l10n-attrs="label" data-l10n-nocontent="yes">
                     <option selected value="all" data-l10n-id="footerSelectAll">All notifications</option>
                     <option value="unread" data-l10n-id="footerSelectUnread">Unread notifications</option>
                     <option value="participating" data-l10n-id="footerSelectParticipating">Participating notifications</option>
                     <option value="watched" data-l10n-id="footerSelectWatched">Watched repositories</option>
-                    <option value="index" data-l10n-id="footerSelectIndex">GitHub frontpage</option>
+                    <option value="index" data-l10n-id="footerSelectIndex">Stackoverflow frontpage</option>
                 </optgroup>
                 <optgroup label="Local" data-l10n-id="footerLocal" data-l10n-attrs="label" data-l10n-nocontent="yes">
                     <option value="options" data-l10n-id="footerSelectOptions">Add-on options</option>
